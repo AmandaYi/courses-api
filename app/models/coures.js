@@ -6,4 +6,5 @@ var CouresSchema   = new Schema({
     couresName: String
 });
 
+
 module.exports = mongoose.model('coures', CouresSchema);
