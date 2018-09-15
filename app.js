@@ -33,14 +33,23 @@ router.get('/', function (req, res) {
 // all courses routes
 // get all course
 router.route('/coures')
-    .get(function (req, res) {
-        Coures.find(function (err, coureses) {
-            if (err) {
-                res.send(err);
-            }
-            res.json(coureses)
-        })
+.get((req,res)=>{
+    Coures.find({},(err,resultList)=>{
+        if(err){
+            res.json({
+                errmsg:"找不到全部信息",
+                errno:-1
+            })
+            return
+        }
+        res.json({
+            resultList,
+            count:resultList.length,
+            errno:0
+        });
+        return
     })
+})
     // create one coures
     .post(function (req, res) {
         if (req.body.couresName == undefined) {
@@ -136,6 +145,23 @@ router.route('/coures')
 
 // evertone choose course  must one
 router.route('/choose')
+.get((req,res)=>{
+    Choose.find({},(err,resultList)=>{
+        if(err){
+            res.json({
+                errmsg:"找不到全部信息",
+                errno:-1
+            })
+            return
+        }
+        res.json({
+            resultList,
+            count:resultList.length,
+            errno:0
+        });
+        return
+    })
+})
     // create user choose info 
     .post((req, res) => {
         const choose = new Choose()
