@@ -13,7 +13,7 @@ var ChooseSchema = new Schema({
     club_id: String,
     phone: String,
     // 选择的课程id
-    coures_id: Number,
+    coures_id: String,
     // 选择的课程名字
     coures_name:String
 });
