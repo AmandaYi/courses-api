@@ -5,7 +5,7 @@ const routerModule = express.Router();
 const Choose = require('./../models/choose');
 const Coures = require("./../models/coures")
 routerModule.use((req, res, next) => {
-    console.log(`拿到路径${req.url}`);
+    // console.log(`拿到路径${req.url}`);
     next()
 })
 // 选课系统
@@ -179,7 +179,7 @@ routerModule.route('/coures')
     })
     // create one coures
     .post((req, res) => {
-        console.log(req.body)
+        // console.log(req.body)
         if (req.body.couresName == undefined && req.body.couresName !== "") {
             res.json({
                 errmsg: "couresName参数错误",
